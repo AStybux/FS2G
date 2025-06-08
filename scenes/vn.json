@@ -1,0 +1,373 @@
+{
+  "$root": {
+    "assets": [
+      {
+        "name": "blagovest",
+        "url": "scenes/assets/blagovest.ttf"
+      },
+      {
+        "name": "dialog-box-full",
+        "url": "scenes/assets/dialog-box-full.png"
+      },
+      {
+        "name": "dialog-box",
+        "url": "scenes/assets/dialog-box.png"
+      },
+      {
+        "name": "jakobc",
+        "url": "scenes/assets/jakobc.ttf"
+      },
+      {
+        "name": "kolokol",
+        "url": "scenes/assets/kolokol.ogg"
+      },
+      {
+        "name": "liberation",
+        "url": "scenes/assets/liberation.ttf"
+      },
+      {
+        "name": "main",
+        "url": "scenes/assets/main.jpg"
+      },
+      {
+        "name": "menu-item",
+        "url": "scenes/assets/menu-item.mp3"
+      },
+      {
+        "name": "minecraft",
+        "url": "scenes/assets/minecraft.ttf"
+      },
+      {
+        "name": "monocraft",
+        "url": "scenes/assets/monocraft.ttf"
+      },
+      {
+        "name": "ogilvie",
+        "url": "scenes/assets/ogilvie.ttf"
+      },
+      {
+        "name": "paint-board",
+        "url": "scenes/assets/paint-board.jpg"
+      },
+      {
+        "name": "paint-boardb",
+        "url": "scenes/assets/paint-boardb.jpg"
+      },
+      {
+        "name": "paint-boardw",
+        "url": "scenes/assets/paint-boardw.jpg"
+      },
+      {
+        "name": "show-frame",
+        "url": "scenes/assets/show-frame.jpg"
+      },
+      {
+        "name": "timeset",
+        "url": "scenes/assets/timeset.ttf"
+      },
+      {
+        "name": "unscii-16",
+        "url": "scenes/assets/unscii-16.ttf"
+      },
+      {
+        "name": "unscii-8",
+        "url": "scenes/assets/unscii-8.ttf"
+      },
+      {
+        "name": "zimjs-logo",
+        "url": "scenes/assets/zimjs-logo.png"
+      },
+      {
+        "name": "zimjs-zlogo",
+        "url": "scenes/assets/zimjs-zlogo.webp"
+      }
+    ],
+    "$init": [
+      {
+        "jump": "ikrus.$init"
+      }
+    ],
+    "characters": [
+      {
+        "id": "$",
+        "name": null,
+        "nameColor": "#D9D9D9",
+        "replyColor": "#D9D9D9"
+      },
+      {
+        "id": "$G",
+        "name": null,
+        "nameColor": "#00B03B",
+        "replyColor": "#00B03B"
+      },
+      {
+        "id": "$B",
+        "name": null,
+        "nameColor": "#00B2EB",
+        "replyColor": "#00B2EB"
+      },
+      {
+        "id": "$R",
+        "name": null,
+        "nameColor": "#E10057",
+        "replyColor": "#E10057"
+      },
+      {
+        "id": "player",
+        "name": "player",
+        "nameColor": "#00B2EB",
+        "replyColor": "#00B2EB"
+      },
+      {
+        "id": "znk",
+        "name": null,
+        "avatar": "ikrus_znk",
+        "nameColor": "#D9D9D9",
+        "replyColor": "#D9D9D9"
+      }
+    ],
+    "package": {
+      "scale": 1,
+      "debug": false,
+      "preload": true,
+      "font-family": "liberation",
+      "menu": {
+        "audio": "menu-item",
+        "volume": 0.1
+      },
+      "main-menu": {
+        "audio": "menu-item",
+        "volume": 0.1
+      },
+      "dialog-box": {
+        "font-size": "20px",
+        "line-height": "24px",
+        "font-family": "liberation",
+        "mode-classic": "dialog-box",
+        "mode-fullscreen": "dialog-box-full"
+      },
+      "paint-board": false,
+      "chess-board": false,
+      "brython-ide": false,
+      "publish": {
+        "host": "http://vnjson.mcap.fun",
+        "token": 0
+      },
+      "url-db": "http://vnjson.mcap.fun/reindexer/api/v1/db/mcap_vnjson_store",
+      "discord-log": {
+        "webhook": "https://discord.com/api/webhooks/000000000000000000/0000000000000000000000_0000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  "ikrus": {
+    "assets": [
+      {
+        "name": "ikrus",
+        "url": "scenes/assets/ikrus.jpg"
+      },
+      {
+        "name": "ikrus_aap",
+        "url": "scenes/assets/ikrus_aap.jpg"
+      },
+      {
+        "name": "ikrus_vvm",
+        "url": "scenes/assets/ikrus_vvm.jpg"
+      },
+      {
+        "name": "ikrus_znk",
+        "url": "scenes/assets/ikrus_znk.png"
+      }
+    ],
+    "$init": [
+      {
+        "dialog-box": "classic",
+        "scene": "ikrus",
+        "next": true
+      },
+      {
+        "$": "<div style='text-align: center'> Тест по Русскому языку, для учеников 8-го класса. </br> По теме «Причастия». </div>"
+      },
+      {
+        "znk": "<div style='text-align: center'> </div>",
+        "next": true,
+        "dialog-box": "disabled"
+      },
+      {
+        "test": {
+          "name": "<b style='font-size: 24px !important;'>Тест по теме «Причастия»</b>",
+          "type": "TrueFalse",
+          "self-control": 500,
+          "onEnd": {
+            "switch": {
+              "trueAnswer < 10": {
+                "znk": "Тест не пройден. </br> </br> Вы верно ответили на {{trueAnswer}} вопросов и допустили {{falseAnswer}} ошибок."
+              },
+              "trueAnswer >= 10": {
+                "znk": "Поздравляю вы прошли тест."
+              }
+            },
+            "data-set": {
+              "imgTest": "ikrus_znk",
+              "textTest": "Ваш результат {{trueAnswer}} баллов",
+              "summData": true,
+              "summTest1": "{{summTest}}",
+              "trueAnswer1": "{{trueAnswer}}",
+              "falseAnswer1": "{{falseAnswer}}"
+            }
+          },
+          "questions": [
+            {
+              "question": "<b> 1. Что такое причастие? </b>",
+              "reply": "</br> </br> В предложении причастия бывают бывают определением или входят в состав сказуемого.",
+              "correct": 1,
+              "variants": [
+                "Часть речи",
+                "Часть слова",
+                "Грамматическая категория",
+                "Второстепенный член предложения"
+              ]
+            },
+            {
+              "question": "<b> 2. Какие виды причастий существуют? </b>",
+              "reply": "Причастия делятся на действительные настоящего и прошедшего времени, страдательные настоящего и прошедшего времени.",
+              "correct": 1,
+              "variants": [
+                "Действительные и страдательные",
+                "Качественные и относительные",
+                "Количественные и порядковые",
+                "Собственные и нарицательные"
+              ]
+            },
+            {
+              "question": "<b> 3. От какого глагола нельзя образовать причастие настоящего времени? </b>",
+              "reply": "Причастия настоящего времени (и действительные, и страдательные) образуются только от глаголов несовершенного вида (у глаголов совершенного вида нет причастий настоящего времени).",
+              "correct": 3,
+              "variants": [
+                "Играть",
+                "Любить",
+                "Спеть",
+                "Делить"
+              ]
+            },
+            {
+              "question": "<b> 4. Какая форма причастия не образуется от слова «ЧИСТИТЬ»? </b>",
+              "correct": 3,
+              "variants": [
+                "Действительное причастие прошедшего времени",
+                "Действительное причастие настоящего времени",
+                "Cтрадательное причастие настоящего времени",
+                "Cтрадательное причастие  прошедшего времени"
+              ]
+            },
+            {
+              "question": "<b> 5. Как образуются страдательные причастия настоящего времени? </b>",
+              "correct": 1,
+              "variants": [
+                "C помощью суффиксов -ем-, -им-",
+                "C помощью суффиксов -ащ-, -ящ-",
+                "C помощью суффиксов -енн, -нн-, -т-",
+                "C помощью суффиксов -вш-, -ш-"
+              ]
+            },
+            {
+              "question": "<b> 6. Какое причастие пропущено в строчках В. Маяковского? </b> </br> </br> Я крикнул солнцу&#58;  </br> «Дармоед! </br> .................. в облака ты, </br> а тут — не знай ни зим, ни лет, </br> сиди, рисуй плакаты!»",
+              "image": "ikrus_vvm",
+              "correct": 1,
+              "variants": [
+                "Занежен",
+                "Залезший",
+                "Запрятан"
+              ]
+            },
+            {
+              "question": "<b> 7. Выберите верную характеристику выделенного причастия в строчках А.С.Пушкина&#58; </b> </br> </br> <b> Гонимы </b> вешними лучами, </br> С окрестных гор уже снега </br> Сбежали мутными ручьями </br> На потоплённые луга.",
+              "image": "ikrus_aap",
+              "correct": 1,
+              "variants": [
+                "краткое, страдательное, множ. числа",
+                "краткое, действительное, множ. числа",
+                "полное, страдательное, множ. числа"
+              ]
+            },
+            {
+              "question": "<b> 8. Выберите верную характеристику выделенного причастия в строчках А.С.Пушкина&#58; </b> </br> </br> Гонимы вешними лучами, </br> С окрестных гор уже снега </br> Сбежали мутными ручьями </br> На <b> потоплённые </b> луга.",
+              "image": "ikrus_aap",
+              "correct": 3,
+              "variants": [
+                "затопить",
+                "топить",
+                "потопить"
+              ]
+            },
+            {
+              "question": "<b> 9. Выберите подходящий по смыслу синоним к выделенному причастию&#58; </b> </br> </br> Белая свитка и алый кушак,  </br> Рву я по грядкам <b> зардевшийся </b> мак…",
+              "correct": 3,
+              "variants": [
+                "появившийся",
+                "зародившийся",
+                "покрасневший"
+              ]
+            },
+            {
+              "question": "<b> 10. Какое слово из стихотворения И.Бродского является причастием&#58; </b> </br> </br> смущать календари и числа   </br> присутствием, лишённым смысла, </br> доказывая посторонним, </br> что жизнь - синоним </br> небытия и нарушенья правил.",
+              "correct": 2,
+              "variants": [
+                "доказывая",
+                "лишённым",
+                "посторонним"
+              ]
+            },
+            {
+              "question": "<b> 11. Сколько причастий в стихотворении Велимира Хлебникова&#58; </b> </br> </br> В этот день голубых медведей, </br> Пробежавших по тихим ресницам, </br> Я провижу за синей водой </br> В чаше глаз приказанье проснуться. </br> На серебряной ложке протянутых глаз </br> Мне протянуто море и на нем буревестник; </br> И к шумящему морю, вижу, птичая Русь </br> Меж ресниц пролетит неизвестных. </br> Но моряной любес опрокинут </br> Чей-то парус в воде кругло-синей, </br> Но зато в безнадежное канут </br> Первый гром и путь дальше весенний.",
+              "correct": 2,
+              "variants": [
+                "четыре",
+                "пять"
+              ]
+            },
+            {
+              "question": "<b> 12. Определите средство выразительности, выраженное причастием, в строчках Ф.Тютчева&#58;</b> </br> </br> Ты скажешь&#58; ветреная Геба, </br>  Кормя Зевесова орла, </br> Громокипящий кубок с неба, </br> Смеясь, на землю пролила!",
+              "correct": 1,
+              "variants": [
+                "эпитет",
+                "олицетворение",
+                "гипербола"
+              ]
+            },
+            {
+              "question": "<b> 13. Каким членом предложения будет причастие в строчках Велимира Хлебникова </b> </br> </br> Здесь красных лебедей заря </br> Сверкает новыми крылами. </br> Там надпись старого царя </br> Засыпана песками.",
+              "correct": 2,
+              "variants": [
+                "подлежащее",
+                "сказуемое",
+                "дополнение"
+              ]
+            },
+            {
+              "question": "<b> 14. Какая запятая пропущена в четверостишии Н.А.Некрасова? Почему её необходимо поставить? </b> </br> </br> Однажды, в студёную зимнюю пору,</br> Я из лесу вышел; был сильный мороз.  </br> Гляжу, поднимается медленно в гору  </br> Лошадка везущая хворосту воз.",
+              "correct": 2,
+              "variants": [
+                "выделить однородные члены",
+                "выделить причастный оборот",
+                "разделить части сложного предложения"
+              ]
+            },
+            {
+              "question": "<b> 15. Какое причастие использовано в качестве эпитета-олицетворения?  </b> </br> </br> Точно призрак умирающий, </br> На степи ковыль качается, </br> Смотрит Месяц догорающий, </br> Белой тучкой омрачается…",
+              "correct": 1,
+              "variants": [
+                "умирающий",
+                "догорающий",
+                "омрачается"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "$": "<div style='text-align: center'> Я вас поздравляю. </div>",
+        "dialog-box": "classic"
+      }
+    ]
+  }
+}
